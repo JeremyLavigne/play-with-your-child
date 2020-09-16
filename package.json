@@ -1,0 +1,11 @@
+{
+    "name": "play-with-your-child",
+    "version": "0.0.1",
+    "description": "some simples games you can play with your child",
+    "scripts": {},
+    "license": "MIT",
+    "devDependencies": {
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12"
+    }
+}
