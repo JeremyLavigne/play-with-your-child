@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import HomePage from './HomePage'
-import BoardGame from './BoardGame'
+import HomePage from './structure/HomePage'
+import BoardGame from './structure/BoardGame'
 
 const App = () => {
 

@@ -8,7 +8,7 @@ const GameTile = ({ title, name, image, setOpenGame}) => {
 
     return (
 
-        <div className="col-5 col-md-3 m-1 px-0">
+        <div className="col-5 col-md-3 m-2 px-1">
 
             <div className="card p-1">
 
