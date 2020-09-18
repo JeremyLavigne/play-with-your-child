@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux'
+
 import HomePage from './structure/HomePage'
 import BoardGame from './structure/BoardGame'
 
+
+// ------------------------------------------------------------------------------------------------
 const App = () => {
 
-  const [openGame, setOpenGame] = useState("none")
+  const openGame = useSelector(state => state.openGame)
 
   return (
 
     <div>
       { openGame === "none" ?
 
-        <HomePage setOpenGame={setOpenGame} />
+        <HomePage />
 
         :
 
-        <BoardGame game={openGame} setOpenGame={setOpenGame}/>
+        <BoardGame />
 
       }
     </div>

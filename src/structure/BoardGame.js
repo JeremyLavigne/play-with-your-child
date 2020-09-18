@@ -1,10 +1,16 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { closeGame } from '../reducers/mainReducer'
 
 
-const BoardGame = ({ game, setOpenGame }) => {
+// ------------------------------------------------------------------------------------------------
+const BoardGame = () => {
+
+  const dispatch = useDispatch()
+  const openGame = useSelector(state => state.openGame)
 
   const handleClickBack = () => {
-    setOpenGame("none")
+      dispatch(closeGame())
   }
 
   return (
@@ -12,7 +18,7 @@ const BoardGame = ({ game, setOpenGame }) => {
     <div className="container">
 
       <header className="container d-flex justify-content-between p-1">
-        <p> You are playing : {game} </p>
+        <p> {openGame} </p>
 
         <button className="btn btn-sm btn-danger" onClick={handleClickBack} > Back </button>
       </header>
