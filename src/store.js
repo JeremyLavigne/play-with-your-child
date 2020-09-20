@@ -1,14 +1,14 @@
 import { createStore, combineReducers } from 'redux'
+
 import mainReducer from './reducers/mainReducer'
+import tictacReducer from './reducers/tictacReducer'
 
 
-/*
 const reducer = combineReducers({
-    score: scoreReducer,
-    word: wordReducer,
-    gameMode : gameModeReducer
+    main: mainReducer,
+    tictac: tictacReducer
   })
-*/
-const store = createStore(mainReducer)
+
+const store = createStore(reducer)
 
 export default store

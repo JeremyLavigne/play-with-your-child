@@ -8,7 +8,7 @@ import BoardGame from './structure/BoardGame'
 // ------------------------------------------------------------------------------------------------
 const App = () => {
 
-  const openGame = useSelector(state => state.openGame)
+  const openGame = useSelector(state => state.main.openGame)
 
   return (
 

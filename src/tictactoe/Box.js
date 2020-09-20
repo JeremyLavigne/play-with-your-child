@@ -1,12 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { nextPlayer, gameOver } from '../reducers/mainReducer'
+import { boxIsClicked } from '../reducers/tictacReducer'
+import { checkWin, checkGameOver} from './utils/functions'
 
 
 // ------------------------------------------------------------------------------------------------
-const Box = () => {
+const Box = ({boxNumber}) => {
 
-    const boxStyle = { 
-        height: '100px', width: '100px',
-        minHeight: '50px', minWidth: '50px'
+    const dispatch = useDispatch()
+    const playerTurn = useSelector(state => state.main.playerTurn)
+    const boxes = useSelector(state => state.tictac.boxesStatus)
+
+    const boxContent = useSelector(state => state.tictac.boxesStatus[boxNumber-1])
+
+
+    useEffect(() => {
+        const win = checkWin(boxes)
+        if (win == "x") { console.log("player 1 win")}
+        if (win == "o") { console.log("player 2 win")}
+
+        if (checkGameOver(boxes)) {dispatch(gameOver())}
+        
+    }, [boxContent])
+
+
+    const handleClickBox = () => {
+        
+        if (playerTurn == 1){ 
+            //setBoxContent("x") 
+            dispatch(boxIsClicked(boxNumber, "x"))
+        } else {
+            //setBoxContent("o")
+            dispatch(boxIsClicked(boxNumber, "o"))
+        }
+        
+        dispatch(nextPlayer())
     }
 
     return (
@@ -14,11 +44,25 @@ const Box = () => {
         <div 
             className="border bg-light d-flex justify-content-center align-items-center" 
             style={boxStyle}
+            onClick={handleClickBox}
         >
-            x
+            {boxContent == "x" ?
+                <i className="fas fa-times fa-5x text-danger"></i>
+                : boxContent == "o" ?
+                <i className="far fa-circle fa-5x text-info"></i>
+                :
+                null
+            }
         </div>
 
     )
+}
+
+// See if we can make a custom cursor (X - O)
+const boxStyle = { 
+    height: '100px', width: '100px',
+    minHeight: '50px', minWidth: '50px',
+    cursor: 'pointer'
 }
 
 export default Box
