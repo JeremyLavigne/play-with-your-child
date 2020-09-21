@@ -18,23 +18,23 @@ const HomePage = () => {
         />
         <GameTile
           title="Simon Game"
-          image={require('../images/tic-tac-toe.png')}
+          image={require('../images/simon.png')}
         />
         <GameTile
           title="Memory"
-          image={require('../images/tic-tac-toe.png')}
+          image={require('../images/memory.png')}
         />
         <GameTile
           title="Nim's Game"
-          image={require('../images/tic-tac-toe.png')}
+          image={require('../images/nim.png')}
         />
         <GameTile
-          title="Power 4"
-          image={require('../images/tic-tac-toe.png')}
+          title="Connect 4"
+          image={require('../images/connect.png')}
         />
         <GameTile
-          title="Goose Game"
-          image={require('../images/tic-tac-toe.png')}
+          title="Unknown"
+          image={require('../images/unknown.png')}
         />
 
       </div>

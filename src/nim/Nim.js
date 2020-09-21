@@ -6,7 +6,7 @@ const Nim = () => {
 
   return (
 
-    <div className="container">
+    <div className="container text-light">
 
         Here will stand the Nim's game. Not Ready
 

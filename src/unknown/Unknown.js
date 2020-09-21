@@ -2,17 +2,17 @@ import React from 'react'
 
 
 // ------------------------------------------------------------------------------------------------
-const Power = () => {
+const Unknown = () => {
 
   return (
 
-    <div className="container">
+    <div className="container text-light">
 
-        Here will stand the power 4 game. Not Ready
+        This game is not ready yet.
 
     </div>
 
   )
 }
 
-export default Power
+export default Unknown

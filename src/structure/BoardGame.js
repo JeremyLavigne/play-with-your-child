@@ -7,7 +7,8 @@ import Tictactoe from '../tictactoe/Tictactoe'
 import Simon from '../simon/Simon'
 import Memory from '../memory/Memory'
 import Nim from '../nim/Nim'
-import Power from '../power/Power'
+import Connect from '../connect/Connect'
+import Unknown from '../unknown/Unknown'
 
 import PlayerBoard from './PlayerBoard'
 import GameOverMsg from './GameOverMsg.js'
@@ -65,9 +66,12 @@ const BoardGame = () => {
               <Memory />
               : openGame == "Nim's Game" ?
               <Nim />
-              : openGame == "Power 4" ?
-              <Power />
-              : null
+              : openGame == "Connect 4" ?
+              <Connect />
+              : openGame == "Unknown" ?
+              <Unknown />
+              :
+              null
             }
           </div>
           

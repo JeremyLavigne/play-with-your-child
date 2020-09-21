@@ -2,17 +2,17 @@ import React from 'react'
 
 
 // ------------------------------------------------------------------------------------------------
-const Memory = () => {
+const Connect = () => {
 
   return (
 
     <div className="container text-light">
 
-        Here will stand the memory game. Not Ready
+        Here will stand the power 4 game. Not Ready
 
     </div>
 
   )
 }
 
-export default Memory
+export default Connect

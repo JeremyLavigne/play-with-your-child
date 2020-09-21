@@ -18,11 +18,19 @@ const GameTile = ({ title, image }) => {
 
             <div className="card p-1 bg-dark">
 
-                <div className="card-header text-center text-dark bg-light">{title}</div>
+                <div className="card-header text-center text-dark bg-light">
+                    {title}
+                </div>
 
-                <img src={image} className="card-img p-3" alt="game-overview" />
+                <div className="card-body">
 
-                <div className="card-body text-center">
+                    <figure >
+                        <img src={image} className="card-img p-3" alt="game-overview"/>
+                    </figure>
+
+                </div>
+
+                <div className="card-footer text-center">
                     <button 
                         className="btn btn-sm btn-primary"
                         onClick={handleClickPlay}
