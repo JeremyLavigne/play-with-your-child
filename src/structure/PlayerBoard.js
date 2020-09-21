@@ -53,10 +53,9 @@ const PlayerBoard = ({playerNumber}) => {
                 </button>
             </div>
         }
-
         <div>
             { yourTurn == playerNumber ?
-                <p className="bg-success p-3 rounded">Your turn</p>
+                <p className="bg-success p-3 mt-4 rounded">Your turn</p>
                 :
                 null
             }

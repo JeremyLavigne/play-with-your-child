@@ -3,7 +3,8 @@ const initialState = {
     player1Name : "Player 1",
     player2Name : "Player 2",
     playerTurn : 1,
-    gameOver : false
+    gameOver : false,
+    winner : ""
 }
 
 
@@ -35,6 +36,15 @@ export const changePlayerName = (playerNumber, newName) => {
 export const nextPlayer = () => {
     return {
         type : 'NEXT_PLAYER',
+    }
+}
+
+export const setWinner = (winner) => {
+    return {
+      type : 'SET_WINNER',
+      data : {
+          winner : winner
+      }
     }
 }
 
@@ -76,6 +86,10 @@ const mainReducer = (state = initialState, action) => {
             newState.playerTurn = (state.playerTurn == 1) ? 2 : 1
             return newState
 
+        case 'SET_WINNER' :
+            newState.winner = action.data.winner
+            return newState
+
         case 'GAME_OVER' :
             newState.gameOver = true
             return newState
@@ -83,6 +97,7 @@ const mainReducer = (state = initialState, action) => {
         case 'NEW_GAME' :
             newState.playerTurn = Math.floor(Math.random() * Math.floor(2)) + 1
             newState.gameOver = false
+            newState.winner = ""
             return newState
 
       default: return state

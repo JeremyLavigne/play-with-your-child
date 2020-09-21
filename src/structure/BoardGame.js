@@ -4,6 +4,11 @@ import { closeGame, newGame } from '../reducers/mainReducer'
 import { newTicTac } from '../reducers/tictacReducer'
 
 import Tictactoe from '../tictactoe/Tictactoe'
+import Simon from '../simon/Simon'
+import Memory from '../memory/Memory'
+import Nim from '../nim/Nim'
+import Power from '../power/Power'
+
 import PlayerBoard from './PlayerBoard'
 import GameOverMsg from './GameOverMsg.js'
 import Modal from 'react-bootstrap/Modal'
@@ -52,7 +57,18 @@ const BoardGame = () => {
           </div>
 
           <div className="col-12 col-lg-6 p-5 bg-dark">
-            <Tictactoe />
+            { openGame == "Tic Tac Toe" ?
+              <Tictactoe />
+              : openGame == "Simon Game" ?
+              <Simon />
+              : openGame == "Memory" ?
+              <Memory />
+              : openGame == "Nim's Game" ?
+              <Nim />
+              : openGame == "Power 4" ?
+              <Power />
+              : null
+            }
           </div>
           
         </div>

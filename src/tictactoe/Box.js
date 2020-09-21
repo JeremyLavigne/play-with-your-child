@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { nextPlayer, gameOver } from '../reducers/mainReducer'
+import { nextPlayer, gameOver, setWinner } from '../reducers/mainReducer'
 import { boxIsClicked } from '../reducers/tictacReducer'
 import { checkWin, checkGameOver} from './utils/functions'
 
@@ -18,8 +18,14 @@ const Box = ({boxNumber}) => {
 
     useEffect(() => {
         const win = checkWin(boxes)
-        if (win == "x") { console.log("player 1 win")}
-        if (win == "o") { console.log("player 2 win")}
+        if (win == "x") { 
+            dispatch(setWinner("Player 1"))
+            dispatch(gameOver())
+        }
+        if (win == "o") { 
+            dispatch(setWinner("Player 2"))
+            dispatch(gameOver())
+        }
 
         if (checkGameOver(boxes)) {dispatch(gameOver())}
         
