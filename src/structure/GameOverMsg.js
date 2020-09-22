@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-
+// ------------------------------------------------------------------------------------------------
+// Modal which pop up when game is over - display info about who wins and new game button 
 // ------------------------------------------------------------------------------------------------
 const GameOverMsg = ({newGame}) => {
 

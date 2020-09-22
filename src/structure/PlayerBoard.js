@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import {changePlayerName} from '../reducers/mainReducer'
 
-
+// ------------------------------------------------------------------------------------------------
+// Player board - Deals with user name - and show whose turn is it
 // ------------------------------------------------------------------------------------------------
 const PlayerBoard = ({playerNumber}) => {
 

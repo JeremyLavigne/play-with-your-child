@@ -1,8 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
+// Reducers
 import { closeGame, newGame } from '../reducers/mainReducer'
 import { newTicTac } from '../reducers/tictacReducer'
+import { newSimon } from '../reducers/simonReducer'
 
+// Components
 import Tictactoe from '../tictactoe/Tictactoe'
 import Simon from '../simon/Simon'
 import Memory from '../memory/Memory'
@@ -15,7 +19,9 @@ import GameOverMsg from './GameOverMsg.js'
 import Modal from 'react-bootstrap/Modal'
 
 
-
+// ------------------------------------------------------------------------------------------------
+// Board Game - same for all games, display content regarding user choice
+// NavBar and NewGame is handled here
 // ------------------------------------------------------------------------------------------------
 const BoardGame = () => {
 
@@ -29,8 +35,8 @@ const BoardGame = () => {
 
   const handleClickNew = () => {
     dispatch(newGame())
-    if (openGame == "Tic Tac Toe") {dispatch(newTicTac())
-  }
+    if (openGame == "Tic Tac Toe") {dispatch(newTicTac())}
+    if (openGame == "Simon Game") {dispatch(newSimon())}
     
 }
 

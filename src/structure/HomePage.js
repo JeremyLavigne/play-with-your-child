@@ -2,7 +2,8 @@ import React from 'react'
 
 import GameTile from './GameTile'
 
-
+// ------------------------------------------------------------------------------------------------
+// Home page - first visible for user - offers choice between games
 // ------------------------------------------------------------------------------------------------
 const HomePage = () => {
 

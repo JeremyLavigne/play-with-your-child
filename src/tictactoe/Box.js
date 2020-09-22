@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { nextPlayer, gameOver, setWinner } from '../reducers/mainReducer'
 import { boxIsClicked } from '../reducers/tictacReducer'
+
 import { checkWin, checkGameOver} from './utils/functions'
 
 
+// ------------------------------------------------------------------------------------------------
+// One (of 9) box inside Tic Tac Toe - can be empty, X or O
 // ------------------------------------------------------------------------------------------------
 const Box = ({boxNumber}) => {
 

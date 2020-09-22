@@ -2,7 +2,8 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { openOneGame } from '../reducers/mainReducer'
 
-
+// ------------------------------------------------------------------------------------------------
+// One (of 6) game Card which appears on Home page
 // ------------------------------------------------------------------------------------------------
 const GameTile = ({ title, image }) => {
 
