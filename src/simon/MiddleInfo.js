@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { startOriginalSequence, endOriginalSequence, startPlayerSequence,
-    addToOriginalSequence, initPlayerSequence } from '../reducers/simonReducer'
+    addToOriginalSequence, initPlayerSequence, increaseSequenceTime } from '../reducers/simonReducer'
 
 import {generateRandomColor} from './utils/functions'
 
@@ -17,12 +17,33 @@ const MiddleInfo = () => {
     const sequenceDuration = useSelector(state => state.simon.sequenceDuration)
     const originalSequenceIsPlaying = useSelector(state => state.simon.originalSequenceIsPlaying)
     const playerSequenceIsPlaying = useSelector(state => state.simon.playerSequenceIsPlaying)
+    const originalSequence = useSelector(state => state.simon.originalSequence)
 
+    // -------------------------------------
     const handleClickReady = () => {
 
+        // Erase previous player Sequence
         dispatch(initPlayerSequence())
+        // Add a new sound to the original sequence
         dispatch(addToOriginalSequence(generateRandomColor()))
+        dispatch(increaseSequenceTime(500)) 
+
         dispatch(startOriginalSequence())
+
+        // Playing sequence :
+        for (let i = 0; i < originalSequence.length; i++) {
+            
+            setTimeout(() =>{ 
+                document.getElementById(`sound-${originalSequence[i]}`).play()
+
+                document.getElementById(`button-${originalSequence[i]}`).style.border = "5px solid white"
+
+                setTimeout(() =>{ 
+                    document.getElementById(`button-${originalSequence[i]}`).style.border = ""
+                }, 300)
+
+            }, 500 + i*500)
+        }
 
         setTimeout(() =>{
             dispatch(endOriginalSequence())

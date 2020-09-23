@@ -64,6 +64,21 @@ export const addToPlayerSequence = (color) => {
     }
 }
 
+export const increaseSequenceTime = (time) => {
+    return {
+        type: 'INCREASE_TIME',
+        data: {
+            value: time
+        }
+    }
+}
+
+export const initSequenceTime = () => {
+    return {
+        type: 'INIT_TIME'
+    }
+}
+
 export const newSimon = () => {
     return {
         type: 'NEW_GAME'
@@ -114,6 +129,14 @@ const simonReducer = (state = initialState, action) => {
             const newPlayerSequence = state.playerSequence
             newPlayerSequence.push(action.data.value)
             newState.playerSequence = newPlayerSequence
+            return newState
+
+        case 'INCREASE_TIME':
+            newState.sequenceDuration += action.data.value
+            return newState
+
+        case 'INIT_TIME':
+            newState.sequenceDuration = 500
             return newState
 
         case 'NEW_GAME':

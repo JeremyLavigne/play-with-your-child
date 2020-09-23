@@ -56,6 +56,7 @@ const SimonButton = ({ color, radius }) => {
     return (
         <div>
             <button
+                id={`button-${color}`}
                 className={`btn btn-${color}`}
                 style={buttonStyle}
                 disabled={buttonsAreDisabled}
