@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
+
 // ------------------------------------------------------------------------------------------------
 // Modal which pop up when game is over - display info about who wins and new game button 
 // ------------------------------------------------------------------------------------------------
@@ -10,13 +11,11 @@ const GameOverMsg = ({newGame}) => {
     const player1Name = useSelector(state => state.main.player1Name)
     const player2Name = useSelector(state => state.main.player2Name)
 
-    console.log(winner)
-
     return (
 
         <div className="modal-dialog">
             <div className="modal-content">
-                <div className="modal-body">
+                <div className="modal-body txt-center">
                    
                     { winner == "Player 1" ?
                         <p> Well done {player1Name} !</p>

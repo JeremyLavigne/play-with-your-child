@@ -9,7 +9,6 @@ import SimonButton from './SimonButton'
 // ------------------------------------------------------------------------------------------------
 const Simon = () => {
 
-
   return (
 
     <div className="container text-light">

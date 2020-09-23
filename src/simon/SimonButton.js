@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { addToPlayerSequence, endPlayerSequence} from '../reducers/simonReducer'
+import { addToPlayerSequence, endPlayerSequence } from '../reducers/simonReducer'
 import { gameOver, nextPlayer, setWinner } from '../reducers/mainReducer'
 
 import { checkMatchSequence } from './utils/functions'
@@ -10,7 +10,7 @@ import { checkMatchSequence } from './utils/functions'
 // ------------------------------------------------------------------------------------------------
 // One (of 4) buttons inside Simon Game - red/green/blue/yellow
 // ------------------------------------------------------------------------------------------------
-const SimonButton = ({color, radius}) => {
+const SimonButton = ({ color, radius }) => {
 
     const dispatch = useDispatch()
     const buttonsAreDisabled = useSelector(state => state.simon.buttonsAreDisabled)
@@ -18,12 +18,25 @@ const SimonButton = ({color, radius}) => {
     const playerSequence = useSelector(state => state.simon.playerSequence)
     const playerTurn = useSelector(state => state.main.playerTurn)
 
-    console.log(originalSequence, playerSequence)
+    const sound = require(`./sounds/sound-${color}.wav`).default
+    const buttonStyle = {
+        width: '150px', height: '150px',
+        margin: '5px',
+        borderRadius: radius
+    }
 
+    // To cheat - print sequence (once)
+    if (color == "success") {console.log(originalSequence)}
+
+    // -------------------------------------
     const handleClickButton = () => {
+
+        // Playing sound
+        document.getElementById(`sound-${color}`).play()
+
         dispatch(addToPlayerSequence(color))
 
-        if(playerSequence.length == originalSequence.length ) {
+        if (playerSequence.length == originalSequence.length) {
             dispatch(endPlayerSequence())
             dispatch(nextPlayer())
         }
@@ -40,24 +53,24 @@ const SimonButton = ({color, radius}) => {
 
     }
 
-    const buttonStyle = {
-        width : '150px', height : '150px',
-        margin : '5px',
-        borderRadius : radius
-    }
+    return (
+        <div>
+            <button
+                className={`btn btn-${color}`}
+                style={buttonStyle}
+                disabled={buttonsAreDisabled}
+                onClick={handleClickButton}
+            >
 
-  return (
+            </button>
 
-        <button 
-            className={`btn btn-${color}`} 
-            style={buttonStyle}
-            disabled={buttonsAreDisabled}
-            onClick={handleClickButton}
-        >
+            <audio id={`sound-${color}`}>
+                <source src={sound}></source>
+            </audio>
 
-        </button>
+        </div>
 
-  )
+    )
 }
 
 

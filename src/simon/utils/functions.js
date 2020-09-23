@@ -2,7 +2,7 @@ export const generateRandomColor = () => {
 
     // 4 colors possibles - success danger info warning
     let color = ""
-    const random = Math.floor(Math.random() * Math.floor(2)) + 3 // 1 2 3 4
+    const random = Math.floor(Math.random() * Math.floor(4)) + 1 
 
     switch (random) {
         case 1 : color = "success"
