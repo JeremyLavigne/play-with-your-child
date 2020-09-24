@@ -136,13 +136,13 @@ const simonReducer = (state = initialState, action) => {
             return newState
 
         case 'INIT_TIME':
-            newState.sequenceDuration = 500
+            newState.sequenceDuration = 1000
             return newState
 
         case 'NEW_GAME':
             newState.playerSequence = []
             newState.originalSequence = []
-            newState.sequenceDuration = 0
+            newState.sequenceDuration = 1000
             newState.originalSequenceIsPlaying = false
             newState.playerSequenceIsPlaying = false
             newState.buttonsAreDisabled = true

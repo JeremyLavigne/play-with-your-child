@@ -1,0 +1,15 @@
+export const images = [
+    require('./card1.png'),
+    require('./card2.png'),
+    require('./card3.png'),
+    require('./card4.png'),
+    require('./card5.png'),
+    require('./card6.png'),
+    require('./card7.png'),
+    require('./card8.png'),
+    require('./card9.png'),
+    require('./card10.png'),
+    require('./card11.png'),
+    require('./card12.png'),
+    require('./card13.png'),
+];
