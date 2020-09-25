@@ -40,3 +40,19 @@ export const pickRandom = (numberOfPairs) => {
 
     return shuffledCards;
 }
+
+
+export const pairFound = (cards) => {
+    const returnedCards = cards.filter(card => card.isTried ? card : null)
+    return (returnedCards[0].pairId === returnedCards[1].pairId)
+
+}
+
+export const checkWin = (cards) => {
+    for (let i = 0; i < cards.length-1 ; i++) {
+       if (cards[i].hidden) {
+           return false
+       }
+   }
+   return true
+}
