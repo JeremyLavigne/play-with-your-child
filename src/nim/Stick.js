@@ -4,7 +4,7 @@ import React from 'react'
 // ------------------------------------------------------------------------------------------------
 // One Card (of 20) form the memory game
 // ------------------------------------------------------------------------------------------------
-const Stick = ({number}) => {
+const Stick = ({stick}) => {
 
     const image = require('./images/stick.png')
 
@@ -20,11 +20,15 @@ const Stick = ({number}) => {
 
         <div className="d-flex flex-column" style={divStyle}>
 
-            <p className="text-success text-center"><i className="fas fa-sort-down fa-2x"></i></p>
+            <div className="text-success text-center mb-2">
+                {
+                    stick.pickable ? <i className="fas fa-sort-down fa-2x"></i> : null
+                }
+            </div>
 
-            <img src={image} style={stickStyle}/>
-
-            <p className="text-light">{number}</p>
+            {
+                stick.picked ? null : <img src={image} style={stickStyle}/>
+            }
 
         </div>
 

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { closeGame, newGame } from '../reducers/mainReducer'
 import { newTicTac } from '../reducers/tictacReducer'
 import { newSimon } from '../reducers/simonReducer'
+import { newMemory } from '../reducers/memoryReducer'
+import { newNim } from '../reducers/nimReducer'
 
 // Components
 import Tictactoe from '../tictactoe/Tictactoe'
@@ -37,6 +39,8 @@ const BoardGame = () => {
     dispatch(newGame())
     if (openGame == "Tic Tac Toe") {dispatch(newTicTac())}
     if (openGame == "Simon Game") {dispatch(newSimon())}
+    if (openGame == "Memory") {dispatch(newMemory())}
+    if (openGame == "Nim's Game") {dispatch(newNim())}
     
 }
 

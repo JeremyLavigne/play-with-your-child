@@ -53,7 +53,6 @@ const Card = ({card}) => {
         }
     }
 
-    console.log("Player 1 : ", player1points, " - Player 2 : ", player2points)
     if (checkWin(cards)) {
       if (player1points > player2points) {
         dispatch(setWinner("Player 1"))
@@ -105,7 +104,8 @@ const styles = {
   },
   memoCard: {
       height : '80px',
-      width : '16%'
+      width : '16%',
+      cursor : 'pointer'
       //resizeMode: 'contain'
   }
 }

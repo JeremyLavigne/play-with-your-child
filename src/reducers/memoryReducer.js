@@ -73,7 +73,6 @@ const memoryReducer = (state = initialState, action) => {
         return newState
 
       case 'INCREASE_POINT' :
-        console.log(action.data.value, action.data.value === 1)
         newState.player1points =  action.data.value === 1 ? state.player1points + 1 : state.player1points
         newState.player2points =  action.data.value === 2 ? state.player2points + 1 : state.player2points
         return newState
